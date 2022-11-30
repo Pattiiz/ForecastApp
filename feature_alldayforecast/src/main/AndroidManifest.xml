@@ -4,7 +4,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_alldayforecast">
+        dist:title="@string/title_feature_alldayforecast">
         <dist:delivery>
             <dist:install-time />
         </dist:delivery>

@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 android {
-    namespace 'com.thitiphat.alldayforecast'
+    namespace 'com.thitiphat.feature_alldayforecast'
     compileSdk 32
 
     defaultConfig {

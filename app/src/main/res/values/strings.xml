@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Krungsri Test</string>
-    <string name="title_alldayforecast">All Day Forecast</string>
+    <string name="title_feature_alldayforecast">All Day Forecast</string>
 </resources>

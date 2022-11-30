@@ -1,4 +1,4 @@
-package com.thitiphat.alldayforecast
+package com.thitiphat.feature_alldayforecast
 
 import org.junit.Test
 

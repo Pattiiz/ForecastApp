@@ -38,4 +38,18 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+
+    //RxJava
+    implementation "io.reactivex.rxjava3:rxjava:3.1.5"
+
+    //RxAndroid
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    // Koin
+    implementation "io.insert-koin:koin-android:3.2.0"
 }

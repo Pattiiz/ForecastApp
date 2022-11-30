@@ -5,3 +5,7 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
     id 'com.android.dynamic-feature' version '7.3.1' apply false
 }
+
+ext {
+    nav_version = "2.5.3"
+}

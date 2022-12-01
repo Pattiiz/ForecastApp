@@ -5,10 +5,7 @@ import org.koin.dsl.module
 
 class KoinModule {
 
-    private val apiModule = module {
+    val baseModule = module {
         single { RetrofitModule.init() }
     }
-
-    val baseModule = listOf(apiModule)
-
 }

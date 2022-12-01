@@ -33,12 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    dynamicFeatures = [':feature_alldayforecast']
 }
 
 dependencies {
 
-    implementation project(":base")
+    implementation project(':core')
+    implementation project(":feature:forecast")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'

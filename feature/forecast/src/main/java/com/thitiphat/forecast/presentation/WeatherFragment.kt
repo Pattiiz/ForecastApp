@@ -1,4 +1,4 @@
-package com.thitiphat.krungsritest.presentation
+package com.thitiphat.forecast.presentation
 
 import androidx.fragment.app.Fragment
 

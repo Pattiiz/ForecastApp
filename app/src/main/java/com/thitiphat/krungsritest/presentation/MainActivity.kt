@@ -1,4 +1,4 @@
-package com.thitiphat.krungsritest
+package com.thitiphat.krungsritest.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

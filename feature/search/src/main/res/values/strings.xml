@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="search..">search..</string>
+    <string name="remark">*Location in next screen might not accurate. It\'s depend on data from Weather Api as describe in README.md file</string>
 </resources>

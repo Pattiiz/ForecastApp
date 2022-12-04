@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Bangkok">Bangkok</string>
+    <string name="forecast_change_to_fahrenheit">Change To Fahrenheit</string>
+    <string name="forecast_change_to_celsius">Change To Celsius</string>
+    <string name="dd_MM_yyy_HH_mm">dd-MM-yyyy @HH:mm</string>
+</resources>

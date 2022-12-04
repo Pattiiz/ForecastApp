@@ -17,7 +17,8 @@
 
         <argument
             android:name="currentWeather"
-            app:argType="com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel" />
+            app:argType="com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel"
+            app:nullable="true" />
 
     </fragment>
 

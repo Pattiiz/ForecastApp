@@ -1,7 +1,7 @@
-package com.thitiphat.forecast.domain
+package com.thitiphat.domain.forecast
 
-import com.thitiphat.forecast.data.model.ForecastResponseModel
-import com.thitiphat.forecast.data.repository.Repository
+import com.thitiphat.data.forecast.model.ForecastResponseModel
+import com.thitiphat.data.forecast.repository.Repository
 
 class GetForecastUseCase(private val repository: Repository) {
 

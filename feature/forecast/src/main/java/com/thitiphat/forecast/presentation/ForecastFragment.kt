@@ -27,6 +27,7 @@ import androidx.navigation.fragment.navArgs
 import com.thitiphat.forecast.databinding.FragmentForecastBinding
 import com.thitiphat.core.util.TemperatureConversionUtil
 import com.thitiphat.core.util.TimeConversionUtil
+import com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel
 import com.thitiphat.data.forecast.model.ForecastModel
 import com.thitiphat.data.forecast.model.ForecastResponseModel
 import java.text.SimpleDateFormat
@@ -50,7 +51,7 @@ class ForecastFragment : Fragment() {
         binding.composeView.apply {
             setContent {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-                AllDayForecastScreen(args.forecastData, args.currentWeather.name.orEmpty())
+                AllDayForecastScreen(args.forecastData, args.currentWeather)
 
             }
         }
@@ -58,46 +59,16 @@ class ForecastFragment : Fragment() {
     }
 
     @Composable
-    fun AllDayForecastScreen(data: ForecastResponseModel, cityName: String) {
+    fun AllDayForecastScreen(
+        data: ForecastResponseModel,
+        currentWeather: CurrentWeatherResponseModel?
+    ) {
+        val isCelsius = remember { mutableStateOf(false) }
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(
-                text = cityName,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp, top = 16.dp),
-                fontSize = 42.sp
-            )
-            Text(
-                text = SimpleDateFormat(stringResource(id = R.string.dd_MM_yyy_HH_mm)).format(
-                    Calendar.getInstance().time
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp, top = 8.dp),
-                fontSize = 26.sp
-            )
-            AllDayForecast(data = data.list)
-        }
-    }
-
-    @Composable
-    fun AllDayForecast(data: List<ForecastModel>) {
-        val isCelsius = remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 8.dp)
-            ) {
-                items(data) { eachItem ->
-                    EachHours(eachItem, isCelsius.value)
-                }
-            }
+            HeaderSection(currentWeather, isCelsius.value)
+            AllDayForecast(data = data.list, isCelsius.value)
             OutlinedButton(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -109,6 +80,65 @@ class ForecastFragment : Fragment() {
                     text = if (isCelsius.value) stringResource(id = R.string.forecast_change_to_fahrenheit)
                     else stringResource(id = R.string.forecast_change_to_celsius),
                 )
+            }
+        }
+    }
+
+    @Composable
+    fun HeaderSection(currentWeather: CurrentWeatherResponseModel?, isCelsius: Boolean) {
+        Text(
+            text = currentWeather?.name.orEmpty(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 16.dp),
+            fontSize = 42.sp
+        )
+        Text(
+            text = SimpleDateFormat(stringResource(id = R.string.dd_MM_yyy_HH_mm)).format(
+                Calendar.getInstance().time
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 8.dp),
+            fontSize = 26.sp
+        )
+        Text(
+            text = stringResource(id = R.string.temp) + if (isCelsius) TemperatureConversionUtil.fahrenheitToCelsius(
+                currentWeather?.main?.temp.toString()
+            ) + stringResource(id = R.string.celsius) else currentWeather?.main?.temp.toString() + stringResource(
+                id = R.string.fahrenheit
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 8.dp),
+            fontSize = 26.sp
+        )
+        Text(
+            stringResource(id = R.string.humidity) + currentWeather?.main?.humidity + stringResource(
+                id = R.string.percent
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 8.dp),
+            fontSize = 26.sp
+        )
+    }
+
+    @Composable
+    fun AllDayForecast(data: List<ForecastModel>, isCelsius: Boolean) {
+
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp)
+            ) {
+                items(data) { eachItem ->
+                    EachHours(eachItem, isCelsius)
+                }
             }
         }
 

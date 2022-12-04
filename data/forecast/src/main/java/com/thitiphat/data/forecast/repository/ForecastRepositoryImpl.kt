@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
-class RepositoryImpl(private val forecastApi: ForecastApi) : Repository {
+class ForecastRepositoryImpl(private val forecastApi: ForecastApi) : ForecastRepository {
 
     override fun getForecast(lat: String, lon: String): Single<Response<ForecastResponseModel>> {
         return forecastApi.getForecast(lat, lon).subscribeOn(Schedulers.io())

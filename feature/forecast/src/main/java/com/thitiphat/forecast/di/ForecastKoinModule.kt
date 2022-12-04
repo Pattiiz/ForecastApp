@@ -1,8 +1,8 @@
 package com.thitiphat.forecast.di
 
 import com.thitiphat.domain.forecast.GetForecastUseCase
-import com.thitiphat.data.forecast.repository.Repository
-import com.thitiphat.data.forecast.repository.RepositoryImpl
+import com.thitiphat.data.forecast.repository.ForecastRepository
+import com.thitiphat.data.forecast.repository.ForecastRepositoryImpl
 import org.koin.dsl.module
 
 class ForecastKoinModule {
@@ -12,8 +12,8 @@ class ForecastKoinModule {
     }
 
     private val repositoryModule = module {
-        factory<Repository> {
-            RepositoryImpl(
+        factory<ForecastRepository> {
+            ForecastRepositoryImpl(
                 get()
             )
         }

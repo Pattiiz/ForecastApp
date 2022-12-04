@@ -1,4 +1,4 @@
-package com.thitiphat.base.retrofit
+package com.thitiphat.core.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory

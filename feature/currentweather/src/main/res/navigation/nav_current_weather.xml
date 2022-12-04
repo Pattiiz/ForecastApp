@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_current_weather"
+    app:startDestination="@id/currentWeatherFragment">
+
+    <fragment
+        android:id="@+id/currentWeatherFragment"
+        android:name="com.thitiphat.currentweather.presentation.CurrentWeatherFragment"
+        android:label="Weather Fragment"
+        tools:layout="@layout/fragment_weather">
+
+        <action
+            android:id="@+id/goToAllDayForecast"
+            app:destination="@id/allDayForecastFragment" >
+
+            <argument
+                android:name="forecastData"
+                app:argType="com.thitiphat.data.forecast.model.ForecastResponseModel" />
+
+            <argument
+                android:name="cityName"
+                app:argType="string" />
+
+        </action>
+
+    </fragment>
+
+</navigation>

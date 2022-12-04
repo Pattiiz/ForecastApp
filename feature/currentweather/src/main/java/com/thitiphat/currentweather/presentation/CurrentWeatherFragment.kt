@@ -9,14 +9,14 @@ import androidx.navigation.fragment.findNavController
 import com.thitiphat.core.util.TemperatureConversionUtil
 import com.thitiphat.currentweather.R
 import com.thitiphat.currentweather.constant.Constant
-import com.thitiphat.currentweather.databinding.FragmentWeatherBinding
+import com.thitiphat.currentweather.databinding.FragmentCurrentWeatherBinding
 import com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CurrentWeatherFragment : Fragment() {
 
-    private val binding: FragmentWeatherBinding by lazy {
-        FragmentWeatherBinding.inflate(
+    private val binding: FragmentCurrentWeatherBinding by lazy {
+        FragmentCurrentWeatherBinding.inflate(
             layoutInflater
         )
     }

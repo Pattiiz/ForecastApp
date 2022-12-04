@@ -9,11 +9,11 @@
         android:id="@+id/currentWeatherFragment"
         android:name="com.thitiphat.currentweather.presentation.CurrentWeatherFragment"
         android:label="Weather Fragment"
-        tools:layout="@layout/fragment_weather">
+        tools:layout="@layout/fragment_current_weather">
 
         <action
             android:id="@+id/goToAllDayForecast"
-            app:destination="@id/allDayForecastFragment" >
+            app:destination="@id/allDayForecastFragment">
 
             <argument
                 android:name="forecastData"

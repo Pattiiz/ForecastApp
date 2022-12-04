@@ -14,4 +14,11 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Krungsri Test"
 include ':app'
-include ':feature_alldayforecast'
+include ':core'
+include ':feature:forecast'
+include ':feature:search'
+include ':feature:currentweather'
+include ':data:currentweather'
+include ':data:forecast'
+include ':domain:currentweather'
+include ':domain:forecast'

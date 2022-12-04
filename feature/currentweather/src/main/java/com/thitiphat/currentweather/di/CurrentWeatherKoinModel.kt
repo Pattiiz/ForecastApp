@@ -14,8 +14,8 @@ class CurrentWeatherKoinModel {
     }
 
     private val repositoryModule = module {
-        factory<com.thitiphat.data.currentweather.repository.Repository> {
-            com.thitiphat.data.currentweather.repository.RepositoryImpl(get())
+        factory<Repository> {
+            RepositoryImpl(get())
         }
     }
 
@@ -24,7 +24,7 @@ class CurrentWeatherKoinModel {
     }
 
     private val useCaseModule = module {
-        factory { com.thitiphat.domain.currentweather.GetCurrentWeatherUseCase(get()) }
+        factory { GetCurrentWeatherUseCase(get()) }
     }
 
     val koinModules =

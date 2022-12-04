@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.thitiphat.core.util.TemperatureConversionUtil
+import com.thitiphat.currentweather.R
 import com.thitiphat.currentweather.constant.Constant
 import com.thitiphat.currentweather.databinding.FragmentWeatherBinding
 import com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel
@@ -19,6 +21,8 @@ class CurrentWeatherFragment : Fragment() {
         )
     }
     private val viewModel: CurrentWeatherViewModel by viewModel<CurrentWeatherViewModel>()
+
+    private var isCelsius = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,11 +43,24 @@ class CurrentWeatherFragment : Fragment() {
             ivRefresh.setOnClickListener {
                 viewModel.getCurrentWeather(Constant.DEFAULT_LOCATION)
             }
-            tvSeeMore.setOnClickListener {
+            btnSeeMore.setOnClickListener {
                 viewModel.getForecast(
                     viewModel.currentWeather.value?.coord?.lat.toString(),
                     viewModel.currentWeather.value?.coord?.lon.toString()
                 )
+            }
+            btnChangeTempUnit.setOnClickListener {
+                if (isCelsius) {
+                    tvTemp.text =
+                        viewModel.currentWeather.value?.main?.temp.toString()
+                    tvTempUnit.text = getString(R.string.fahrenheit)
+                    isCelsius = false
+                } else {
+                    tvTemp.text =
+                        TemperatureConversionUtil.fahrenheitToCelsius(viewModel.currentWeather.value?.main?.temp.toString())
+                    tvTempUnit.text = getString(R.string.celsius)
+                    isCelsius = true
+                }
             }
         }
     }
@@ -57,7 +74,7 @@ class CurrentWeatherFragment : Fragment() {
                 it,
                 viewModel.currentWeather.value?.name.orEmpty()
             ).let { nav ->
-                    findNavController().navigate(nav)
+                findNavController().navigate(nav)
             }
         }
     }
@@ -67,7 +84,7 @@ class CurrentWeatherFragment : Fragment() {
             tvLocation.text = data.name
             tvTemp.text = data.main?.temp.toString()
             tvWeather.text = data.weather?.first()?.main
-            tvHumidity.text = data.main?.humidity.toString()
+            tvHumidity.text = data.main?.humidity.toString() + getString(R.string.percent)
         }
     }
 

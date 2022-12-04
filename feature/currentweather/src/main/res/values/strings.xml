@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="forecast_change_to_fahrenheit">Change To Fahrenheit</string>
+    <string name="temp">Temp: </string>
+    <string name="humidity">Humidity: </string>
+    <string name="celsius">°C</string>
+    <string name="fahrenheit">°F</string>
+    <string name="percent">%</string>
+    <string name="see_all_day_forecast">See All Day Forecast</string>
+    <string name="switch_between_c_and_f">Switch between °C and °F</string>
 </resources>

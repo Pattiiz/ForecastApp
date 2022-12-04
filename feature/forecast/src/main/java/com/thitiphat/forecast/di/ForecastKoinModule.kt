@@ -1,11 +1,8 @@
 package com.thitiphat.forecast.di
 
-import com.thitiphat.forecast.data.repository.Repository
-import com.thitiphat.forecast.data.repository.RepositoryImp
-import com.thitiphat.forecast.domain.GetCurrentWeatherUseCase
-import com.thitiphat.forecast.domain.GetForecastUseCase
-import com.thitiphat.forecast.presentation.WeatherViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import com.thitiphat.domain.forecast.GetForecastUseCase
+import com.thitiphat.data.forecast.repository.Repository
+import com.thitiphat.data.forecast.repository.RepositoryImpl
 import org.koin.dsl.module
 
 class ForecastKoinModule {
@@ -15,20 +12,19 @@ class ForecastKoinModule {
     }
 
     private val repositoryModule = module {
-        factory<Repository> { RepositoryImp(get()) }
-    }
-
-    private val viewModelModule = module {
-        viewModel { WeatherViewModel(get(), get()) }
+        factory<Repository> {
+            RepositoryImpl(
+                get()
+            )
+        }
     }
 
     private val useCaseModule = module {
-        factory { GetCurrentWeatherUseCase(get()) }
         factory { GetForecastUseCase(get()) }
     }
 
     val koinModules =
         module {
-            includes(apiModule, repositoryModule, viewModelModule, useCaseModule)
+            includes(apiModule, repositoryModule, useCaseModule)
         }
 }

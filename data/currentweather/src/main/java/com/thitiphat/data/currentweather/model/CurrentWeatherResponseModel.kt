@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class CurrentWeatherResponseModel(
     @SerializedName("coord") val coord: CoordModel?,
     @SerializedName("weather") val weather: List<WeatherModel>?,
@@ -12,12 +13,13 @@ data class CurrentWeatherResponseModel(
     @SerializedName("dt") val dt: Int?,
     @SerializedName("timezone") val timezone: Int?,
     @SerializedName("name") val name: String?
-)
+) : Parcelable
 
+@Parcelize
 data class CoordModel(
     @SerializedName("lon") val lon: Float?,
     @SerializedName("lat") val lat: Float?
-)
+) : Parcelable
 
 @Parcelize
 data class WeatherModel(

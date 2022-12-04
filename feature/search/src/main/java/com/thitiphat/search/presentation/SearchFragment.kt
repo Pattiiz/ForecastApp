@@ -63,7 +63,7 @@ class SearchFragment : Fragment() {
             )
         }
         viewModel.forecast.observe(viewLifecycleOwner) {
-            SearchFragmentDirections.goToAllDay(it, viewModel.currentWeather.value?.name.orEmpty())
+            SearchFragmentDirections.goToAllDay(it, viewModel.currentWeather.value)
                 .let { nav ->
                     findNavController().navigate(nav)
                 }

@@ -50,7 +50,7 @@ class ForecastFragment : Fragment() {
         binding.composeView.apply {
             setContent {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-                AllDayForecastScreen(args.forecastData, args.cityName)
+                AllDayForecastScreen(args.forecastData, args.currentWeather.name.orEmpty())
 
             }
         }

@@ -42,8 +42,8 @@
             app:argType="com.thitiphat.data.forecast.model.ForecastResponseModel" />
 
         <argument
-            android:name="cityName"
-            app:argType="string" />
+            android:name="currentWeather"
+            app:argType="com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel" />
 
     </fragment>
 

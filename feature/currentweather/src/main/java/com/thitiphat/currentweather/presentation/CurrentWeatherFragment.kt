@@ -72,7 +72,7 @@ class CurrentWeatherFragment : Fragment() {
         viewModel.forecast.observe(viewLifecycleOwner) {
             CurrentWeatherFragmentDirections.goToAllDayForecast(
                 it,
-                viewModel.currentWeather.value?.name.orEmpty()
+                viewModel.currentWeather.value
             ).let { nav ->
                 findNavController().navigate(nav)
             }

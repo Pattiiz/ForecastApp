@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
-class RepositoryImpl(private val api: CurrentWeatherApi) : Repository {
+class CurrentWeatherRepositoryImpl(private val api: CurrentWeatherApi) : CurrentWeatherRepository {
 
     override fun getLatLng(cityName: String): Single<Response<List<LatLngModel>>> {
         return api.getLatLng(cityName).subscribeOn(Schedulers.io())

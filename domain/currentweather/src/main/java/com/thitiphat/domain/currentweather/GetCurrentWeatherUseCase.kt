@@ -2,9 +2,9 @@ package com.thitiphat.domain.currentweather
 
 import android.util.Log
 import com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel
-import com.thitiphat.data.currentweather.repository.Repository
+import com.thitiphat.data.currentweather.repository.CurrentWeatherRepository
 
-class GetCurrentWeatherUseCase(private val repository: Repository) {
+class GetCurrentWeatherUseCase(private val currentWeatherRepository: CurrentWeatherRepository) {
 
     private lateinit var callback: (CurrentWeatherResponseModel) -> Unit
 
@@ -14,7 +14,7 @@ class GetCurrentWeatherUseCase(private val repository: Repository) {
     }
 
     private fun getLatLngFromCityName(city: String) {
-        repository.getLatLng(city).subscribe({ response ->
+        currentWeatherRepository.getLatLng(city).subscribe({ response ->
             response.body()?.let { responseBody ->
                 getCurrentWeather(
                     responseBody.first().lat.orEmpty(),
@@ -27,7 +27,7 @@ class GetCurrentWeatherUseCase(private val repository: Repository) {
     }
 
     private fun getCurrentWeather(lat: String, lng: String) {
-        repository.getCurrentWeather(lat, lng).subscribe({ response ->
+        currentWeatherRepository.getCurrentWeather(lat, lng).subscribe({ response ->
             response.body()?.let {
                 callback.invoke(it)
             }

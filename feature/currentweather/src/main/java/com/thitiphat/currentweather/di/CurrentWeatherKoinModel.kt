@@ -2,8 +2,8 @@ package com.thitiphat.currentweather.di
 
 import com.thitiphat.currentweather.presentation.CurrentWeatherViewModel
 import com.thitiphat.domain.currentweather.GetCurrentWeatherUseCase
-import com.thitiphat.data.currentweather.repository.Repository
-import com.thitiphat.data.currentweather.repository.RepositoryImpl
+import com.thitiphat.data.currentweather.repository.CurrentWeatherRepository
+import com.thitiphat.data.currentweather.repository.CurrentWeatherRepositoryImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -14,8 +14,8 @@ class CurrentWeatherKoinModel {
     }
 
     private val repositoryModule = module {
-        factory<Repository> {
-            RepositoryImpl(get())
+        factory<CurrentWeatherRepository> {
+            CurrentWeatherRepositoryImpl(get())
         }
     }
 

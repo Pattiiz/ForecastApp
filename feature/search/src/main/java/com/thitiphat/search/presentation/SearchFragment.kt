@@ -79,6 +79,7 @@ class SearchFragment : Fragment() {
                 .background(Color.Black)
         ) {
             SearchBar()
+            Remark()
             SearchResult()
         }
     }
@@ -140,6 +141,24 @@ class SearchFragment : Fragment() {
                 text = data
             )
         }
+    }
+
+    @Composable
+    fun Remark() {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .background(MaterialTheme.colorScheme.secondaryContainer)
+        ) {
+            Text(
+                text = stringResource(id = R.string.remark),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            )
+        }
+
     }
 
 

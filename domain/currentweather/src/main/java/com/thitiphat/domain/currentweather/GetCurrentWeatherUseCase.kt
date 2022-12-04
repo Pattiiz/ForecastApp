@@ -1,8 +1,8 @@
-package com.thitiphat.forecast.domain
+package com.thitiphat.domain.currentweather
 
 import android.util.Log
-import com.thitiphat.forecast.data.model.CurrentWeatherResponseModel
-import com.thitiphat.forecast.data.repository.Repository
+import com.thitiphat.data.currentweather.model.CurrentWeatherResponseModel
+import com.thitiphat.data.currentweather.repository.Repository
 
 class GetCurrentWeatherUseCase(private val repository: Repository) {
 

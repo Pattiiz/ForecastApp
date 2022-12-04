@@ -1,6 +1,6 @@
-package com.thitiphat.base.di
+package com.thitiphat.core.di
 
-import com.thitiphat.base.retrofit.RetrofitModule
+import com.thitiphat.core.retrofit.RetrofitModule
 import org.koin.dsl.module
 
 class BaseKoinModule {

@@ -9,9 +9,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +27,6 @@ import androidx.navigation.fragment.navArgs
 import com.thitiphat.forecast.databinding.FragmentForecastBinding
 import com.thitiphat.core.util.TemperatureConversionUtil
 import com.thitiphat.core.util.TimeConversionUtil
-import com.thitiphat.data.forecast.constant.Constant
 import com.thitiphat.data.forecast.model.ForecastModel
 import com.thitiphat.data.forecast.model.ForecastResponseModel
 import java.text.SimpleDateFormat
@@ -126,17 +122,30 @@ class ForecastFragment : Fragment() {
                 .padding(start = 16.dp)
                 .background(color = Color(236, 239, 241), RoundedCornerShape(4.dp))
                 .padding(16.dp)
+                .width(140.dp)
         ) {
             data.dt?.let {
                 Text(
                     text = TimeConversionUtil.unixTimeToGmt(it)
                 )
             }
-            Icon(
-                imageVector = Icons.Default.Star,
-                contentDescription = Constant.STRING_EMPTY
+
+            Text(
+                modifier = Modifier.padding(top = 16.dp),
+                fontSize = 20.sp,
+                text = stringResource(id = R.string.temp) + if (isCelsius) TemperatureConversionUtil.fahrenheitToCelsius(
+                    data.main?.temp.toString()
+                ) + stringResource(id = R.string.celsius) else data.main?.temp.toString() + stringResource(
+                    id = R.string.fahrenheit
+                )
             )
-            Text(text = if (isCelsius) TemperatureConversionUtil.fahrenheitToCelsius(data.main?.temp.toString()) else data.main?.temp.toString())
+            Text(
+                modifier = Modifier.padding(top = 16.dp),
+                fontSize = 20.sp,
+                text = stringResource(id = R.string.humidity) + data.main?.humidity + stringResource(
+                    id = R.string.percent
+                )
+            )
         }
     }
 }

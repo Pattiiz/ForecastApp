@@ -4,4 +4,9 @@
     <string name="forecast_change_to_fahrenheit">Change To Fahrenheit</string>
     <string name="forecast_change_to_celsius">Change To Celsius</string>
     <string name="dd_MM_yyy_HH_mm">dd-MM-yyyy @HH:mm</string>
+    <string name="temp">Temp: </string>
+    <string name="humidity">Humidity: </string>
+    <string name="celsius">°C</string>
+    <string name="fahrenheit">°F</string>
+    <string name="percent">%</string>
 </resources>

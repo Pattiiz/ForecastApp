@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Krungsri Test</string>
     <string name="title_feature_alldayforecast">All Day Forecast</string>
+    <string name="page_current_weather">Current Weather</string>
+    <string name="search">Search</string>
+    <string name="weather_fragment">Weather Fragment</string>
+    <string name="search_fragment">Search Fragment</string>
+    <string name="all_day_forecast_fragment">All Day Forecast Fragment</string>
 </resources>

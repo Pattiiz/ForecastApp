@@ -7,8 +7,10 @@ There is 3 screen with 3 feature
 - **Forecast** show 5 day forecast
 - **Search** search screen that you can enter (some) city name and it's will show you forcast for 5 day
 
+wiring all togather with Navigation Component
+
 # Architecture
-this application using multi module architecture seperate by layer and feature
+this application using **multi module architecture seperate by layer and feature**
 
 this is relation between module
 
@@ -35,17 +37,20 @@ this is what all module look like :
 :data:forecast
 ```
 # Tech
-> Dependency Injection by Koin
-
-> Jetpack Compose 
+- **MVVM Pattern**
+- **Multi Module Architecture**
+- **Dependency Injection by Koin**
+- **IU by XML and Jetpack Compose**
 
 I am new into Jetpack Compose but I want to try this out
-> ViewBinding
 
-> Navigation Component
+- **ViewBinding**
+- **Navigation by Navigation Component**
 
 I am also new into this Navigation Component. I am not sure what I am doing is the best practice ?
+- **RXJava**
 
+Use for observe data from API Service
 
 # Unittest
 Only tested UseCase in 

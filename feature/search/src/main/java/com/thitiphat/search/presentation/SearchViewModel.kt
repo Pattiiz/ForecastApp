@@ -40,7 +40,7 @@ class SearchViewModel(
             return
         }
         filteredData.value = originalData.filter {
-            it.contains(query)
+            it.lowercase().contains(query.lowercase())
         }
 
     }

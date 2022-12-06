@@ -3,11 +3,23 @@ I made this app according to requirement that need mobile application that can s
 
 # Feature
 There is 3 screen with 3 feature 
-- **CurrentWeather** main screen that show current weather, location, and humidity
+- **CurrentWeather** main screen that show current weather, location, and humidity (default is Bangkok)
 - **Forecast** show 5 day forecast
 - **Search** search screen that you can enter (some) city name and it's will show you forcast for 5 day
 
 wiring all togather with Navigation Component
+
+** **Note** result in search screen minght to be accurate because
+
+I use cityname to get LatLng -> and then use LatLng to get current weather and forecast
+
+Data from 3 servies
+```
+1. city name to get LatLng
+2. LatLng to get current weather
+3. LatLng to get forecast 
+```
+it's not the same location even I use LatLng from 1st service to get data from 2nd and 3rd service
 
 # Architecture
 this application using **multi module architecture seperate by layer and feature**
